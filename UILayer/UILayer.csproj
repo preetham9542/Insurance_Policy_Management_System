@@ -277,6 +277,7 @@
     <Content Include="Views\Admin\EditCustomer.cshtml" />
     <Content Include="Views\Customer\CancelPolicy.cshtml" />
     <Content Include="Views\Customer\FamilyDetail.cshtml" />
+    <Content Include="Views\Customer\demoview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

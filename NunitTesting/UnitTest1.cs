@@ -82,13 +82,86 @@ namespace NunitTesting
             }
         }
         [Test]
-        public void GetAllCustomers()
+        public void PolicyNumber_Required()
         {
-            CustomerController Cust = new CustomerController();
-            foreach(var i in Cust.Allcustomers())
-            {
 
+            var policyModel = new PolicyModel
+            {
+                DateOfCreation = DateTime.Now,
+                Category = "Life"
+            };
+
+
+            Assert.Throws<ValidationException>(() => ValidateModel(policyModel));
+        }
+
+        [Test]
+        public void AppliedDate_Required()
+        {
+
+            var policyModel = new PolicyModel
+            {
+                PolicyNumber = "ABC123",
+                Category = "Travel",
+                DateOfCreation = DateTime.Now
+            };
+
+
+            Assert.DoesNotThrow(() => ValidateModel(policyModel));
+        }
+        private void ValidateModel(PolicyModel model)
+        {
+            var validationContext = new ValidationContext(model, null, null);
+            var validationResults = new List<ValidationResult>();
+            Validator.TryValidateObject(model, validationContext, validationResults, true);
+
+            if (validationResults.Any())
+            {
+                var errorMessage = string.Join(Environment.NewLine, validationResults.Select(r => r.ErrorMessage));
+                throw new ValidationException(errorMessage);
             }
         }
+        [Test]
+        public void QuestionId_NotRequired()
+        {
+            var questionModel = new QuestionModel
+            {
+                Question = "Test question",
+                Date = DateTime.Now,
+                Answer = "Test answer",
+                CustomerId = 123
+            };
+
+            Assert.DoesNotThrow(() => ValidateModel2(questionModel));
+        }
+
+        [Test]
+        public void Question_LengthWithinLimit()
+        {
+
+            var questionModel = new QuestionModel
+            {
+                Question = new string('A', 255),
+                Date = DateTime.Now,
+                Answer = "Test answer",
+                CustomerId = 123
+            };
+
+            Assert.DoesNotThrow(() => ValidateModel2(questionModel));
+        }
+        private void ValidateModel2(QuestionModel model)
+        {
+            var validationContext = new ValidationContext(model, null, null);
+            var validationResults = new List<ValidationResult>();
+            Validator.TryValidateObject(model, validationContext, validationResults, true);
+
+            if (validationResults.Any())
+            {
+                var errorMessage = string.Join(Environment.NewLine, validationResults.Select(r => r.ErrorMessage));
+                throw new ValidationException(errorMessage);
+            }
+        }
+
+
     }
 }
