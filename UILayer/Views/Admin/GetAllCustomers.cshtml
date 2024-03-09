@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "GetAllCustomers";
+}
+
+    ﻿@model List<DataAccessLayer.Customer>
+
+    <style>
+        body {
+            background-color: #f0f4f7;
+            color: #333;
+            font-family: 'arial', sans-serif;
+            margin: 0;
+        }
+
+        .navbar-nav.flex-grow-1 {
+            display: none;
+        }
+
+        #right-nav {
+            display: block;
+        }
+
+        #cust-dash {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #e0f7fa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #b3e0f2;
+            padding: 12px 9px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #5f5d9c;
+            color: #fff;
+        }
+
+        td {
+            background-color: #b5c0d0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #bbdefb;
+        }
+    </style>
+
+    <h2>All Customers</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>PhoneNumber</th>
+            <th>UserName</th>
+            <th>Password</th>
+            <th>RoleId</th>
+            <th>You Can..!</th>
+
+        </tr>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.Email</td>
+                <td>@customer.PhoneNumber</td>
+                <td>@customer.UserName</td>
+                <td>@customer.Password</td>
+                <td>@customer.RoleId</td>
+
+                <td>
+                    <!-- View button -->
+                    <a href="@Url.Action("ViewCustomer", "Admin", new { id = customer.Id })" class="action-button btn btn-info">View</a>
+
+                    <!-- Edit button -->
+                    <a href="@Url.Action("EditCustomer", "Admin", new { id = customer.Id })" class="action-button btn btn-dark">Edit</a>
+
+                    <!-- Delete button -->
+                    <a href="@Url.Action("DeleteCustomer", "Admin", new { id = customer.Id })" class="action-button  btn btn-danger ">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>

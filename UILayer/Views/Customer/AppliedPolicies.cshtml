@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "AppliedPolicies";
+}
+
+﻿@model List<DataAccessLayer.AppliedPolicy>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+           
+        }
+
+        .navbar-nav.flex-grow-1 {
+            display: none;
+        }
+
+        #right-nav {
+            display: block;
+        }
+
+        #admin-dash {
+            display: none;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #56020296;
+            color: white;
+        }
+
+        td {
+            background-color: #ddbbbb;
+        }
+        tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        
+        .payment-block {
+            align-content:center;
+            padding: 10px;
+            display: inline-block; 
+            margin-left:20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>List of Applied Policies</h2>
+
+    <table>
+        <tr>
+            <th>Applied Policy ID</th>
+            <th>Policy Number</th>
+            <th>Applied Date</th>
+            <th>Policy Type</th>
+            <th>Policy Category</th>
+            <th>Price</th>
+            <th>Customer ID</th>
+            <th>Status</th>
+            <th>Payment Action</th>
+        </tr>
+        @foreach (var appliedPolicy in Model)
+        {
+            if (appliedPolicy.CustomerId == Convert.ToInt32(Session["CustomerUserId"]))
+            {
+                <tr>
+                    <td>@appliedPolicy.AppliedPolicyId</td>
+                    <td>@appliedPolicy.PolicyNumber</td>
+                    <td>@appliedPolicy.AppliedDate.ToShortDateString()</td>
+                    <td>@appliedPolicy.Category</td>
+                    <td>@appliedPolicy.policycategory</td>
+                    <td>@appliedPolicy.Price</td>
+                    <td>@appliedPolicy.CustomerId</td>
+                    <td>@appliedPolicy.StatusCode</td>
+                    @if (appliedPolicy.StatusCode == DataAccessLayer.PolicyStatus.Pending)
+                    {
+                        <td>
+                            <form method="post" action="CancelPolicy">
+                                <input type="hidden" name="appliedPolicyId" value="@appliedPolicy.AppliedPolicyId" />
+                                <input type="submit" value="Cancel" class="btn btn-outline-danger" />
+                            </form>
+                        </td>
+                    }
+                    else if(appliedPolicy.StatusCode == DataAccessLayer.PolicyStatus.Disapproved)
+                    {
+                        <td>
+                            <p class="payment-block text-bg-danger">Declined</p>
+                        </td>
+                    }
+                    else if (appliedPolicy.StatusCode == DataAccessLayer.PolicyStatus.Approved && UILayer.Controllers.CustomerController.c == 1)
+                    {
+                        <td>
+                            <p class="payment-block text-bg-success">Paid</p>
+                        </td>
+                    }
+                    else if (appliedPolicy.StatusCode == DataAccessLayer.PolicyStatus.Approved)
+                    {
+                        <td>
+                            <form method="post" action="Pay">
+                                <input type="hidden" name="appliedPolicyId" value="@appliedPolicy.AppliedPolicyId" />
+                                <input type="submit" value="Pay" margin-left:20px class="btn btn-outline-primary" />
+                            </form>
+                        </td>
+                    }
+
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>

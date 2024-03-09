@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Success";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .navbar-nav.flex-grow-1 {
+        display: none;
+    }
+
+    #right-nav {
+        display: block;
+    }
+
+    #admin-dash {
+        display: none;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20201028/pngtree-yellow-question-mark-on-a-light-blue-pastel-background-3d-illustration-image_443913.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<h2>Success</h2>
+
+<p>Your Question has been Successfully Submitted. Thank you!</p>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
