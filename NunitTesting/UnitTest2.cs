@@ -16,7 +16,7 @@ namespace NunitTesting
         [Test]
         public void Checkcredentials()
         {
-            var loginView = new LoginModel { UserName = "pree09", Password = "Ram@1234" };
+            var loginView = new LoginModel { UserName = "Preetham09", Password = "Preetham@123" };
             Assert.DoesNotThrow(() => ValidateModel(loginView));
         }
 

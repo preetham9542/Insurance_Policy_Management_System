@@ -1,7 +1,7 @@
 ﻿@model DataAccessLayer.Category
 <style>
     body {
-        background-color: lightgray;
+        background-color: white;
     }
 
     .navbar-nav.flex-grow-1 {
@@ -19,21 +19,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Your existing head content remains unchanged -->
-</head>
+
 <body>
+
     <h2>Add Category</h2>
 
     @using (Html.BeginForm("AddCategory", "Admin", FormMethod.Post))
     {
         @Html.ValidationSummary(true)
 
-        @*<div>
-            <label for="PolicyNumber">Category Id:</label>
-            @Html.TextBoxFor(model => model.CategoryId)
-            @Html.ValidationMessageFor(model => model.CategoryId)
-        </div>*@
         <div>
             <label for="Category">Category Name:</label>
             @Html.TextBoxFor(model => model.CategoryName)

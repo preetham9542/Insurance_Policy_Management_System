@@ -36,7 +36,7 @@
 
         th, td {
             border: 1px solid #b3e0f2;
-            padding: 12px 9px;
+            padding: 12px 7px;
             text-align: left;
         }
 
@@ -82,13 +82,9 @@
                 <td>@customer.RoleId</td>
 
                 <td>
-                    <!-- View button -->
+                    
                     <a href="@Url.Action("ViewCustomer", "Admin", new { id = customer.Id })" class="action-button btn btn-info">View</a>
-
-                    <!-- Edit button -->
                     <a href="@Url.Action("EditCustomer", "Admin", new { id = customer.Id })" class="action-button btn btn-dark">Edit</a>
-
-                    <!-- Delete button -->
                     <a href="@Url.Action("DeleteCustomer", "Admin", new { id = customer.Id })" class="action-button  btn btn-danger ">Delete</a>
                 </td>
             </tr>

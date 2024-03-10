@@ -144,7 +144,6 @@ namespace UILayer.Controllers
             return View();
         }
 
-
         [HttpPost]
         public ActionResult DisplayQuestionsByCustomerId()
         {
@@ -198,13 +197,12 @@ namespace UILayer.Controllers
                 var fam = context.FamilyMembers.Find(customerId);
 
                 if (fam != null)
-                {
-
+                { 
                     return View(new List<FamilyMember> { fam });
                 }
                 else
                 {
-                    return View("Not Found");
+                    return HttpNotFound();
                 }
 
             }

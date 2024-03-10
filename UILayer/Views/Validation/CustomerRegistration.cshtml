@@ -25,7 +25,7 @@
 
 </style>
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+@*<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>*@
 
 <div class="container-fluid">
     <h2 class="text-white">New Registration</h2>
@@ -113,10 +113,8 @@
     <script>
         function resetForm(formId) {
             var form = document.getElementById(formId);
-
             // Reset the form fields
             form.reset();
-
             // Clear validation messages
             var validationMessages = form.querySelectorAll('[data-valmsg-for]');
             for (var i = 0; i < validationMessages.length; i++) {
@@ -127,11 +125,7 @@
     function refreshCaptcha() {
             
             var captchaImage = document.getElementById('captchaImage');
-
-            
             captchaImage.src = '@Url.Action("GenerateCaptchaImage", "Validation")?' + new Date().getTime();
-
-
             document.getElementById('captchaInput').value = '';
         }
     </script>

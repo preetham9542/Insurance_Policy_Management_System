@@ -57,19 +57,19 @@ namespace UILayer.Controllers
                 if (!ValidateCaptcha(captchaInput))
                 {
                     ModelState.AddModelError("Captcha", "Captcha verification failed.");
-                    return View("Registration", user);
+                    return View("CustomerRegistration", user);
                 }
 
                 // Check if email or username already registered
                 if (cust)
                 {
                     ModelState.AddModelError("Email", "Email already registered with us.");
-                    return View("Registration", user);
+                    return View("CustomerRegistration", user);
                 }
                 else if (cust1)
                 {
                     ModelState.AddModelError("UserName", "Username already registered with us.");
-                    return View("Registration", user);
+                    return View("CustomerRegistration", user);
                 }
                 Customer newcustomer = new Customer
                 {
@@ -137,19 +137,19 @@ namespace UILayer.Controllers
                 if (!ValidateCaptcha(captchaInput))
                 {
                     ModelState.AddModelError("Captcha", "Captcha verification failed.");
-                    return View("Registration", user);
+                    return View("AdminRegistration", user);
                 }
 
                 // Check if email or username already registered
                 if (cust)
                 {
                     ModelState.AddModelError("Email", "Email already registered with us.");
-                    return View("Registration", user);
+                    return View("AdminRegistraion", user);
                 }
                 else if (cust1)
                 {
                     ModelState.AddModelError("UserName", "Username already registered with us.");
-                    return View("Registration", user);
+                    return View("AdminRegistration", user);
                 }
                 Admin newadmin = new Admin
                 {

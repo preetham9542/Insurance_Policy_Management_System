@@ -40,7 +40,6 @@
             text-align: center;
         }
 
-        /* Additional style for aligning items to the right */
         .navbar-nav {
             margin-left: auto;
         }
@@ -54,7 +53,7 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm p-0 navbar-dark bg-black">
         <div class="container py-0" >
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="">
       
                 <img src="~/Content/logo.gif" alt="Content Writer" style="width: 200px">
             </a>
@@ -67,19 +66,31 @@
                 <ul class="navbar-nav flex-grow-1 justify-content-start">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Sign Up", "CustomerRegistration", "Validation", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li cla>
+                    <li>
                         <a class="nav-link" href="@Url.Action("AdminLogin", "Validation")">Admin</a>
                     </li>
                     <li>
                         <a class="nav-link" href="@Url.Action("CustomerLogin", "Validation")">Customer</a>
+                    </li>
+                    
+                </ul>
+                <ul class="navbar-nav flex-grow-1 justify-content-end">
+                    <li>
+                        <a class="nav-link" href="@Url.Action("About", "Home")">About Us</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="@Url.Action("Contact", "Home")">Contact Us</a>
                     </li>
                 </ul>
 
                 <ul id="right-nav" class="navbar-nav">
                     <li id="admin-dash">@Html.ActionLink("Dashboard", "Dashboard", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
                     <li id="cust-dash">@Html.ActionLink("Dashboard", "Dashboard", "Customer", new { area = "" }, new { @class = "nav-link" })</li>
+
                     @*<li>@Html.ActionLink("Logout", "Logout", "Validation", new { area = "" }, new { @class = "nav-link" })</li>*@
                 </ul>
+
+                     
             </div>
         </div>
     </nav>

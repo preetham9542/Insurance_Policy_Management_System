@@ -15,7 +15,7 @@ namespace NunitTesting
         [Test]
         public void CheckCredentilas()
         {
-            var customerModel = new CustomerModel { UserName = "kavya", Password = "Rama@123" };
+            var customerModel = new CustomerModel { UserName = "Kavya09", Password = "Kavya@123" };
             Assert.DoesNotThrow(() => ValidateModel(customerModel));
         }
         private void ValidateModel(CustomerModel model)

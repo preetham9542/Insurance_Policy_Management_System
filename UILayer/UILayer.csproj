@@ -188,6 +188,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\customer.jpg" />
+    <Content Include="Content\ezgif.com-cut.gif" />
     <Content Include="Content\insurance.jpeg" />
     <Content Include="Content\logo.gif" />
     <Content Include="Content\Question-removebg-preview.png" />
@@ -277,7 +278,6 @@
     <Content Include="Views\Admin\EditCustomer.cshtml" />
     <Content Include="Views\Customer\CancelPolicy.cshtml" />
     <Content Include="Views\Customer\FamilyDetail.cshtml" />
-    <Content Include="Views\Customer\demoview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -44,21 +44,7 @@ namespace UILayer.Controllers
                 return RedirectToAction("AdminLogin", "Validation");
             }
         }
-        /* ActionResult GetAllUsers()
-        {
-            InsuranceDbContext context = new InsuranceDbContext();
-            if (Session["AdminUserId"] != null)
-            {
-
-                var users = context.Customers.ToList();
-                return View(users);
-            }
-            else
-            {
-
-                return RedirectToAction("AdminLogin", "Validation");
-            }
-        }*/
+        
         public ActionResult PoliciesList()
         {
             InsuranceDbContext context = new InsuranceDbContext();
@@ -221,7 +207,7 @@ namespace UILayer.Controllers
                 return RedirectToAction("AdminLogin", "Validation");
             }
         }
-
+        
         public ActionResult Question()
         {
             InsuranceDbContext context = new InsuranceDbContext();
@@ -512,7 +498,6 @@ namespace UILayer.Controllers
 
             return View(category);
         }
-
 
     }
 

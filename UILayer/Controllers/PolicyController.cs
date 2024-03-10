@@ -20,7 +20,6 @@ namespace UILayer.Controllers
         }
         public ActionResult ShowAllPolicy()
         {
-            // List<Policy> allPolicies=dbContext.Policies.ToList();
             var policies = dbContext.Policies.ToList();
             return View(policies);
         }

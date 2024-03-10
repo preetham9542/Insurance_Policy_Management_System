@@ -1,9 +1,53 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
+﻿@*@{
+        ViewBag.Title = "About";
+    }
+    <main aria-labelledby="title">
+        <h2 id="title">@ViewBag.Title.</h2>
+        <h3>@ViewBag.Message</h3>
 
-    <p>Use this area to provide additional information.</p>
-</main>
+        <p>Use this area to provide additional information.</p>
+    </main>*@
+
+
+
+@{
+    ViewData["Title"] = "About Us - SPARK";
+}
+<style>
+    img{
+        width:150px;
+        margin-left:10px;
+        display:block;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/styles.css" />
+</head>
+<body>
+    <header>
+
+        <h1 class="company-name">SPARK - A bridge to solution</h1>
+    </header>
+    <div class="content">
+        <p class="about-us-text">
+            SPARK is a leading insurance management system that helps you manage all your insurance policies in one place. We offer a wide range of services to help you get the most out of your insurance coverage.
+        </p>
+        <ul class="services-list">
+            <li class="services-list-item"><i class="fas fa-check-circle"></i>  Policy Management: Easily add, edit, and view all your insurance policies in one place.</li>
+            <li class="services-list-item"><i class="fas fa-file-alt"></i>  Claims Management: File and track your insurance claims online.</li>
+            <li class="services-list-item"><i class="fas fa-calendar-alt"></i>  Renewal Reminders: Never miss an insurance renewal again with our automatic reminder system.</li>
+            <li class="services-list-item"><i class="fas fa-dollar-sign"></i>  Billing Management: View and pay your insurance bills online.</li>
+            <li class="services-list-item"><i class="fas fa-life-ring"></i>  24/7 Customer Support: Get help from our friendly customer support team anytime, anywhere.</li>
+        </ul>
+        <p class="about-us-text">
+            We are committed to providing our customers with the best possible service and experience. With SPARK, you can be sure that your insurance policies are always under control.
+        </p>
+        <img  src="https://img.etimg.com/thumb/width-1200,height-1200,imgsize-254281,resizemode-75,msid-104833531/wealth/insure/health-insurance/health-insurance-claim-settlement-coverage-limit-key-details-to-be-available-in-single-easy-to-understand-document-from-january-1-2024-irdai.jpg" alt="Abstract technology background" class="image">
+    </div>
+</body>
+</html>
