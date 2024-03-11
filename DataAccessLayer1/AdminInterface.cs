@@ -22,7 +22,7 @@ namespace DataAccessLayer
         // Update Admin data
         Admin UpdateAdmin(Admin admin);
 
-        // Delete Admin data
+
         Admin DeleteAdmin(int adminId);
 
         //Save Admin data
